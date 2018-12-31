@@ -24,8 +24,8 @@ export default class FontOrnek extends React.Component {
     await Font.loadAsync({
       'font-adi': require('./assets/fonts/font-adi.uzantisi'),
     });
+    this.setState({ fontLoaded: true })
   }
-  this.setState({ fontLoaded: true })
 
   render() {
     return (
