@@ -8,7 +8,8 @@ export default class KullaniciIzinleri extends React.Component {
 
   constructor(props){
     super(props);
-    this._izinIste = this._izinIste.bind(this);
+    this._izinIste      = this._izinIste.bind(this);
+    this._izinKontrolEt = this._izinKontrolEt.bind(this);
   }
 
   // 'Permissions' modülünün fonksiyonları asenkron çalıştığı için yazacağımız fonksiyonlarda 'async/await' yapısını kullanacağız.
@@ -20,7 +21,6 @@ export default class KullaniciIzinleri extends React.Component {
     // NOT : Eğer izin verilmezse tekrardan izin isteme işlemi yapılamaz. Bir kez izin verilmedikten sonra fonksiyon tekrar çağırılırsa otomatik olarak 'false' dönecektir.
     
     const { status } = await Permissions.askAsync(Permissions.CAMERA_ROLL);
-    
     if (status === 'granted')
       return true;
     else {
